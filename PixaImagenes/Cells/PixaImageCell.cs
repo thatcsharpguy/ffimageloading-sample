@@ -16,11 +16,12 @@ namespace PixaImagenes.Cells
 
         public PixaImageCell()
         {
-            Height = 420;
+            Height = 80;
             _tagsLabel = new Label()
             {
                 BackgroundColor = Color.Black,
                 TextColor = Color.White,
+                FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)),
                 HorizontalTextAlignment = TextAlignment.Center,
                 Margin = 0
             };
@@ -35,8 +36,8 @@ namespace PixaImagenes.Cells
                 RowSpacing = 0,
                 RowDefinitions =
                 {
-                    new RowDefinition { Height = Height - 40 },
-                    new RowDefinition { Height = 40 }
+                    new RowDefinition { Height = Height - 15 },
+                    new RowDefinition { Height = 15 }
                 }
             };
 
