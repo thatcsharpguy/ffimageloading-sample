@@ -16,16 +16,32 @@ namespace PixaImagenes.Cells
 
         public PixaImageCell()
         {
-            Height = 200;
-            _tagsLabel = new Label();
-            _image = new Image();
+            Height = 420;
+            _tagsLabel = new Label()
+            {
+                BackgroundColor = Color.Black,
+                TextColor = Color.White,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Margin = 0
+            };
+            _image = new Image()
+            {
+                Aspect = Aspect.AspectFill
+            };
 
             _grid = new Grid()
             {
-                HeightRequest = 200
+                HeightRequest = Height,
+                RowSpacing = 0,
+                RowDefinitions =
+                {
+                    new RowDefinition { Height = Height - 40 },
+                    new RowDefinition { Height = 40 }
+                }
             };
 
             _grid.Children.Add(_image);
+            Grid.SetRow(_tagsLabel, 1);
             _grid.Children.Add(_tagsLabel);
 
             View = _grid;
@@ -36,11 +52,8 @@ namespace PixaImagenes.Cells
             var image = BindingContext as PixaImage;
             if (image != null)
             {
-                _image.Source = image.PreviewUrl;
-                _tagsLabel.Text = image.Tags + " " + image.PreviewWidth + " " + image.PreviewHeight;
-                _grid.HeightRequest = image.PreviewHeight;
-                Height = image.PreviewHeight;
-                ForceUpdateSize();
+                _image.Source = image.WebformatUrl;
+                _tagsLabel.Text = image.Tags;
             }
         }
     }
