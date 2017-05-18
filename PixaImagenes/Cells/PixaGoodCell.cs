@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
+using FFImageLoading.Forms;
 using PixaImagenes.Entities;
 using Xamarin.Forms;
 
@@ -10,13 +11,13 @@ namespace PixaImagenes.Cells
 {
     public class PixaGoodCell : ViewCell
     {
-        private readonly Image[] ImageControls;
+        private readonly CachedImage[] ImageControls;
         private readonly Grid _grid;
 
         public PixaGoodCell()
         {
             Height = 100;
-            ImageControls = new Image[5];
+            ImageControls = new CachedImage[5];
 
             _grid = new Grid()
             {
@@ -34,9 +35,10 @@ namespace PixaImagenes.Cells
 
             for (int i = 0; i < ImageControls.Length; i++)
             {
-                ImageControls[i] = new Image
+                ImageControls[i] = new CachedImage
                 {
-                    Aspect = Aspect.AspectFill
+                    Aspect = Aspect.AspectFill,
+					//LoadingPlaceholder = "wait.png"
                 };
                 Grid.SetColumn(ImageControls[i], i);
                 _grid.Children.Add(ImageControls[i]);
@@ -54,11 +56,7 @@ namespace PixaImagenes.Cells
 
                 for (int i = 0; i < ImageControls.Length; i++)
                 {
-                    ImageControls[i].Source = new UriImageSource
-                    {
-                        CachingEnabled = false,
-                        Uri = new Uri(image.WebformatUrl)
-                    };
+					ImageControls[i].Source = image.WebformatUrl;;
                 }
             }
         }

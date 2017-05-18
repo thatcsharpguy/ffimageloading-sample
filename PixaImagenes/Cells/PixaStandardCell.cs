@@ -54,11 +54,7 @@ namespace PixaImagenes.Cells
 
                 for (int i = 0; i < ImageControls.Length; i++)
                 {
-                    ImageControls[i].Source = new UriImageSource
-                    {
-                        CachingEnabled = false,
-                        Uri = new Uri(image.WebformatUrl)
-                    };
+					ImageControls[i].Source = image.WebformatUrl;
                 }
             }
         }

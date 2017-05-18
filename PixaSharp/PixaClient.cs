@@ -28,7 +28,7 @@ namespace PixaImagenes
                 "https://pixabay.com/api/" +
                 "?key=" + Key +
                 "&q=" + System.Uri.EscapeDataString(searchTerms) +
-                "&image_type=photo&pretty=true";
+                "&image_type=photo&per_page=60";
             var stringResponse = await Client.GetStringAsync(url);
 
             return JsonConvert.DeserializeObject<Response>(stringResponse);
