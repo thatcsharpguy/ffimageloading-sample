@@ -9,18 +9,19 @@ namespace PixaImagenes
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        public MainPage(DataTemplate template)
         {
             InitializeComponent();
+            if (Device.OS == TargetPlatform.iOS)
+                Padding = new Thickness(0, 20, 0, 0);
+
+            ImageList.ItemTemplate = template;
         }
 
-        protected override async void OnAppearing()
+        private async void ImageSerachBarSearchButtonPressed(object sender, EventArgs e)
         {
-
-            PixaClient client = new PixaClient("5392706-f5e479ff283c464487f394f41");
-            var list = await client.GetPhotos();
-            ImageLink.ItemsSource = list.Hits;
-            base.OnAppearing();
+            var list = await App.PixaClient.GetPhotos(ImageSearchBar.Text);
+            ImageList.ItemsSource = list.Hits;
         }
     }
 }

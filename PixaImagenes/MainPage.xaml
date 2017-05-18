@@ -4,11 +4,15 @@
              xmlns:local="clr-namespace:PixaImagenes"
              xmlns:cells="clr-namespace:PixaImagenes.Cells;assembly=PixaImagenes"
              x:Class="PixaImagenes.MainPage">
-    <ListView x:Name="ImageLink" RowHeight="80">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <cells:PixaImageCell />
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <SearchBar x:Name="ImageSearchBar" SearchButtonPressed="ImageSerachBarSearchButtonPressed"></SearchBar>
+
+        <ListView Grid.Row="1" x:Name="ImageList" RowHeight="100"></ListView>
+    </Grid>
 </ContentPage>

@@ -38,7 +38,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Cells\PixaImageCell.cs" />
+    <Compile Include="Cells\PixaGoodCell.cs" />
+    <Compile Include="Cells\PixaStandardCell.cs" />
+    <Compile Include="Cells\PixaBadCell.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
