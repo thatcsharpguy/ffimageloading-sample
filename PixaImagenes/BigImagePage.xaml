@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="PixaImagenes.BigImagePage"
+             Title="Other">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Height="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <ffimage:CachedImage Grid.ColumnSpan="2" ></ffimage:CachedImage>
+        <Button Grid.Column="0" Grid.Row="1" Text="Big image"></Button>
+        <Button Grid.Column="1" Grid.Row="1" Text="Wrong image"></Button>
+    </Grid>
+</ContentPage>

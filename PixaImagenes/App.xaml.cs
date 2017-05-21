@@ -20,10 +20,13 @@ namespace PixaImagenes
             var standarPage = new MainPage(new DataTemplate(typeof(PixaStandardCell))) { Title = "Meh" };
             var cachedPage = new MainPage(new DataTemplate(typeof(PixaGoodCell))) { Title = "Good" };
 
+            var otherPage = new BigImagePage();
+
             var tabs = new TabbedPage();
             tabs.Children.Add(badPage);
             tabs.Children.Add(standarPage);
             tabs.Children.Add(cachedPage);
+            tabs.Children.Add(otherPage);
 
             MainPage = tabs;
 
