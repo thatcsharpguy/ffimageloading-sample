@@ -38,7 +38,7 @@ namespace PixaImagenes.Cells
                 ImageControls[i] = new CachedImage
                 {
                     Aspect = Aspect.AspectFill,
-					//LoadingPlaceholder = "wait.png"
+                    LoadingPlaceholder = "wait.png"
                 };
                 Grid.SetColumn(ImageControls[i], i);
                 _grid.Children.Add(ImageControls[i]);

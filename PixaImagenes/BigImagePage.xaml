@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
@@ -7,16 +7,19 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Height="*" />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        <ffimage:CachedImage Grid.ColumnSpan="2" ></ffimage:CachedImage>
-        <Button Grid.Column="0" Grid.Row="1" Text="Big image"></Button>
-        <Button Grid.Column="1" Grid.Row="1" Text="Wrong image"></Button>
+        <ffimage:CachedImage x:Name="Image" LoadingPlaceholder="wait.png" ErrorPlaceholder="broken.png" Grid.ColumnSpan="2" ></ffimage:CachedImage>
+        <Button Grid.Column="0" Grid.Row="1" Text="Big image" Clicked="BigImage_Clicked"></Button>
+        <Button Grid.Column="1" Grid.Row="1" Text="Wrong image" Clicked="BadImage_Clicked"></Button>
+        <Button Grid.Column="0" Grid.Row="2" Text="Normal image" Clicked="NormalImage_Clicked"></Button>
+        <Button Grid.Column="1" Grid.Row="2" Text="Transform" Clicked="Transform_Clicked"></Button>
     </Grid>
 </ContentPage>
